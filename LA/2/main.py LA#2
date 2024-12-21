@@ -1,0 +1,8 @@
+class character:
+  def __init__(self, name, role):
+        self.name = name
+        self.role = role
+       
+hero = character("Layla", "marksman")
+hero2 = character("Nana", "mage")
+print(hero.name, hero.role, hero2.name, hero2.role)

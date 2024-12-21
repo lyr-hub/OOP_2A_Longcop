@@ -1,0 +1,15 @@
+class car:
+    def __init__(self, brand, color):
+      self.brand = brand
+      self.color = color
+   
+   
+ly = car("Toyota", "black")
+print(ly.brand, ly.color)
+ly.color = "black"
+print(ly.brand, ly.color)
+
+ly = car("Ford", "White")
+print(ly.brand, ly.color)
+
+

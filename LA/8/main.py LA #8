@@ -1,0 +1,12 @@
+class book:
+    def __init__(self, title, author):
+        self.title = title
+        self. author = author
+ly = book("Obsessed", "Mady")
+del ly.author
+#print(ly.title, ly.author)
+
+ly = book("My first real kiss", "Seeyara")
+print(ly.title, ly.author)
+
+

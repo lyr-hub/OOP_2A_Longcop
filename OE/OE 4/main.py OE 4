@@ -1,0 +1,76 @@
+class Character:
+    def __init__(self, name, health, power):
+        self.name = name
+        self.health = health
+        self.power = power
+
+    def attack(self, target):
+        target.health -= self.power
+        print(f"{self.name} attacks {target.name}. {target.name}'s health is now {target.health}")
+
+    def special_move(self):
+        print(f"{self.name} uses a special move!")
+
+    def defend(self, attacker):
+        # Reduce damage by a fixed amount (e.g., 10 points)
+        damage_reduction = 10
+        self.health -= max(0, attacker.power - damage_reduction)
+        print(f"{self.name} defends against {attacker.name}'s attack. {self.name}'s health is now {self.health}")
+
+
+class Warrior(Character):
+    def __init__(self, name, health, power):
+        super().__init__(name, health, power)
+        self.attack_boost = False
+
+    def special_move(self):
+        print("Warrior uses Shield Bash!")
+        self.attack_boost = True
+
+    def attack(self, target):
+        if self.attack_boost:
+            target.health -= self.power * 2
+            print(f"Warrior's attack is boosted! {self.name} attacks {target.name}. {target.name}'s health is now {target.health}")
+            self.attack_boost = False
+        else:
+            super().attack(target)
+
+
+class Mage(Character):
+    def special_move(self, target):
+        print("Mage casts Fireball!")
+        target.health -= 100
+        print(f"{self.name} casts Fireball on {target.name}. {target.name}'s health is now {target.health}")
+
+
+class Archer(Character):
+    def special_move(self, target):
+        print("Archer shoots a Piercing Arrow!")
+        target.health -= self.power
+        print(f"{self.name} shoots a Piercing Arrow at {target.name}. {target.name}'s health is now {target.health}")
+
+
+class Monster(Character):
+    def special_move(self):
+        print("Monster roars and gains extra health!")
+        self.health += 50
+        print(f"{self.name}'s health is now {self.health}")
+
+
+
+warrior = Warrior("Braveheart", 150, 25)
+mage = Mage("Merlin", 100, 15)
+archer = Archer("Robin Hood", 120, 20)
+monster = Monster("Gorgon", 200, 30)
+
+
+print("***BATTLE START***")
+characters = [warrior, mage, archer, monster]
+
+for character in characters:
+    character.attack(monster)
+    monster.attack(character)
+    monster.special_move()
+
+print("***BATTLE END***")
+

@@ -1,0 +1,15 @@
+class Toy:    
+    def __init__(self, name ,price):
+            self.name = name
+            self.price = price
+    def describeToy(self):
+            print(f"The Toy {self.name} cost {self.price} fesos.")
+           
+class Car(Toy):
+    def __init__(self, name, price):
+            super().__init__(name, price)
+    
+    Moriah = Toy("Moriah", "1")
+    Moriah.describeToy()
+
+

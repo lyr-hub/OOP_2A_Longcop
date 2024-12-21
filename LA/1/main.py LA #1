@@ -1,0 +1,7 @@
+class hero():
+    name = "layla"
+    strong = True
+   
+marksman = hero()
+print(marksman.strong)
+

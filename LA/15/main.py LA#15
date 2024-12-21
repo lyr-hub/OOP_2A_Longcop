@@ -1,0 +1,40 @@
+class Dog:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print("Dog: Bark!")
+       
+class Cat:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print("Cat: Meow!")
+       
+class Bird:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print("Bird: Chirp!")  
+
+class Fish:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print("Fish: ...")
+       
+dog = Dog("Namsin")
+cat = Cat("Namsuri")
+bird = Bird("Noori")
+fish = Fish("Nyx")
+
+def animal_sounds(animal):
+    animal.speak()
+
+
+
+animals = [dog,cat,bird,fish]
+
+for animals in animals:
+       animal_sounds(animals)
+
+

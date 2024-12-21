@@ -1,0 +1,28 @@
+class Hero:
+    def __init__(self, name, role, damage_type):
+        self.name = name
+        self.role = role
+        self.damage_type = damage_type
+
+    def __str__(self):
+        return f"{self.name} ({self.role}): {self.damage_type} damage"
+
+    def describe_team(self, team):
+        print("My Mobile Legends Dream Team:")
+        for hero in team:
+            print(hero)
+
+def create_dream_team():
+    team = []
+    while len(team) < 5:
+        name = input(f"Enter hero {len(team) + 1} name: ")
+        role = input(f"Enter hero {len(team) + 1} role (e.g., Tank, Fighter, Mage, Marksman, Assassin): ")
+        damage_type = input(f"Enter hero {len(team) + 1} damage type (e.g., Physical, Magical): ")
+        team.append(Hero(name, role, damage_type))
+
+    return team
+
+if __name__ == "__main__":
+    dream_team = create_dream_team()
+    hero = Hero("", "", "")  # Create a dummy hero object to use the describe_team method
+    hero.describe_team(dream_team) 
